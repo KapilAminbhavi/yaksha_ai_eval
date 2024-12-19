@@ -1,7 +1,6 @@
 import streamlit as st
 import fitz  # PyMuPDF for PDF text extraction
 import requests  # For making API requests
-import os
 
 # Default question and answer
 DEFAULT_QUESTION = "What is quantum mechanics?"
@@ -11,8 +10,8 @@ DEFAULT_ANSWER = (
     "and quantum information science."
 )
 
-# LLaMA3 API endpoint
-API_URL = "https://103.168.74.48/generate"
+# Retrieve API URL from Streamlit secrets
+API_URL = st.secrets["llama3"]["api_url"]
 
 # Function to extract text from PDF
 def extract_text_from_pdf(pdf_file):
@@ -58,7 +57,7 @@ def call_llama3_api(question, answer):
     }
 
     try:
-        response = requests.post(API_URL, json=payload, verify=False)  # Skipping SSL verification for demo
+        response = requests.post(API_URL, json=payload, verify=False)  # Skipping SSL verification
         if response.status_code == 200:
             return response.json().get("response", "No response received from LLaMA3.")
         else:
