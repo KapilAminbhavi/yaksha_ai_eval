@@ -71,10 +71,10 @@ def evaluate_with_openai(question, answer):
 
 # Streamlit app
 def main():
-    st.title("Answer Evaluation App")
+    st.title("Yaksha Ai Auto Evaluation")
     st.write(
         "Enter a question and an answer below, or upload a PDF/TXT file containing the answer. "
-        "The app will evaluate the answer using OpenAI's API."
+        "The app will evaluate the answer using AI."
     )
 
     # Check if API key is available
