@@ -63,7 +63,7 @@ def evaluate_with_openai(question, answer):
                 {"role": "user", "content": prompt}
             ],
             max_tokens=1000,
-            temperature=0.7
+            temperature=0.3
         )
         return response.choices[0].message['content']
     except Exception as e:
