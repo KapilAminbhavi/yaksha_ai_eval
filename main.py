@@ -8,7 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Set OpenAI API key from environment variable
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# Set OpenAI API key from Streamlit secrets
+openai.api_key = st.secrets["openai"]["OPENAI_API_KEY"]
 
 # Default question and answer
 DEFAULT_QUESTION = "What is quantum mechanics?"
